@@ -28,7 +28,7 @@ body {
 
 ## Credit
 
-Credit to [Sergii Iavorskyi](https://coderwall.com/p/fhgu_q/inlining-images-with-gulp-sass) at [coderwall][https://coderwall.com/].
+Credit to [Sergii Iavorskyi](https://coderwall.com/p/fhgu_q/inlining-images-with-gulp-sass) at [coderwall](https://coderwall.com/).
 
 
 ## License
