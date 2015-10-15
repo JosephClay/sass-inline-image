@@ -1,5 +1,7 @@
 # sass-inline-image
 
+`npm i sass-inline-image`
+
 Use the `inline-image` function from Compass in [gulp-sass](https://www.npmjs.com/package/gulp-sass) ([node-sass](https://www.npmjs.com/package/node-sass)).
 
 ## usage
@@ -8,7 +10,7 @@ Use the `inline-image` function from Compass in [gulp-sass](https://www.npmjs.co
 // in gulpfile
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var sassInlineImage = require('@hps/sass-inline-image');
+var sassInlineImage = require('sass-inline-image');
 gulp.src('style.scss')
     .pipe(
         sass({
