@@ -1,0 +1,53 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "binaryLiterals": false,
+        "blockBindings": true,
+        "classes": false,
+        "defaultParams": true,
+        "destructuring": true,
+        "forOf": false,
+        "generators": false,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": false,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "octalLiterals": false,
+        "regexUFlag": false,
+        "regexYFlag": false,
+        "restParams": true,
+        "spread": true,
+        "superInFunctions": false,
+        "templateStrings": true,
+        "unicodeCodePointEscapes": false,
+        "globalReturn": false,
+        "jsx": true
+    },
+    "rules": {
+        "semi": 2,
+        "eqeqeq": 2,
+        "no-lonely-if": 2,
+        "no-mixed-spaces-and-tabs": 2,
+        "indent": [2, 4],
+        "no-multi-spaces": 0,
+        "no-lone-blocks": 2,
+        "no-loop-func": 2,
+        "no-eval": 2,
+        "quotes": [1, "single"],
+        "consistent-return": 0,
+        "eol-last": 0,
+        "no-return-assign": 0,
+        "key-spacing": 0,
+        "no-mixed-requires": 0,
+        "no-shadow": 0,
+        "new-cap": 0
+    }
+}

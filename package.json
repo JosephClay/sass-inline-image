@@ -1,0 +1,12 @@
+{
+  "name": "sass-inline-image",
+  "version": "0.0.1",
+  "description": "inline images as base64",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Joseph Clay",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^3.3.3"
+  }
+}
