@@ -26,10 +26,12 @@ body {
 }
 ```
 
+## Credit
+
 Credit to [Sergii Iavorskyi](https://coderwall.com/p/fhgu_q/inlining-images-with-gulp-sass) at [coderwall][https://coderwall.com/].
 
 
-#License
+## License
 
 The MIT License (MIT)
 
