@@ -1,6 +1,6 @@
 {
   "name": "sass-inline-image",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "inline images as base64",
   "main": "index.js",
   "scripts": {},
