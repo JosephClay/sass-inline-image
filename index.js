@@ -1,9 +1,22 @@
 // Credit to:
 // https://coderwall.com/p/fhgu_q/inlining-images-with-gulp-sass
-
 var fs    = require('fs');
 var path  = require('path');
 var types = require('node-sass').types;
+
+var svg = function(buffer) {
+    var svg = buffer.toString()
+        .replace(/\n/g, '')
+        .replace(/\r/g, '')
+        .replace(/\#/g, '%23')
+        .replace(/\"/g, "'");
+
+    return '"data:image/svg+xml;utf8,' + svg + '"';
+};
+
+var img = function(buffer, ext) {
+    return '"data:image/' + ext + ';base64,' + buffer.toString('base64') + '"';
+};
 
 module.exports = function(options) {
     options = options || {};
@@ -21,13 +34,9 @@ module.exports = function(options) {
             // read the file
             fs.readFile(filePath, function(err, data) {
                 if (err) { return done(err); }
-
-                // base 64 encode the data
-                var img = (new Buffer(data)).toString('base64');
-                // format the string...
-                var dataImg = 'data:image/' + ext + ';base64,' + img;
-                // ...win
-                done(types.String(dataImg));
+                var buffer = new Buffer(data);
+                var str = ext === 'svg' ? svg(buffer, ext) : img(buffer, ext);
+                done(types.String(str));
             });
         }
     };
