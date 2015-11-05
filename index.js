@@ -23,7 +23,7 @@ module.exports = function(options) {
 
     var base = options.base || process.cwd();
     return {
-        'inline-image($file)': function(file, done) {
+        'inline-image($file)': function(file) {
             // we want to file relative to the base
             var relativePath = './' + file.getValue();
             var filePath = path.resolve(base, relativePath);
@@ -32,12 +32,11 @@ module.exports = function(options) {
             var ext = filePath.split('.').pop();
 
             // read the file
-            fs.readFile(filePath, function(err, data) {
-                if (err) { return done(err); }
-                var buffer = new Buffer(data);
-                var str = ext === 'svg' ? svg(buffer, ext) : img(buffer, ext);
-                done(types.String(str));
-            });
+            var data = fs.readFileSync(filePath);
+
+            var buffer = new Buffer(data);
+            var str = ext === 'svg' ? svg(buffer, ext) : img(buffer, ext);
+            return types.String(str);
         }
     };
 };
