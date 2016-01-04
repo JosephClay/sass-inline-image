@@ -26,6 +26,11 @@ body {
 }
 ```
 
+## options
+
+* `base` String, Optional, Default: current working directory of the process
+* `svgToBase64` Boolean, Optional, Default: `false`
+
 ## Credit
 
 Credit to [Sergii Iavorskyi](https://coderwall.com/p/fhgu_q/inlining-images-with-gulp-sass) at [coderwall](https://coderwall.com/).
