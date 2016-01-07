@@ -9,12 +9,13 @@ var svg = function(buffer, svgToBase64) {
     var svg = buffer.toString()
         .replace(/\n/g, '')
         .replace(/\r/g, '')
-        .replace(/\#/g, '%23')
         .replace(/\"/g, "'");
 
     if(svgToBase64) {
-        buffer = new Buffer(svg);
-        svg = buffer.toString('base64');
+      buffer = new Buffer(svg);
+      svg = buffer.toString('base64');
+    } else {
+      svg = encodeURIComponent(svg);
     }
 
     return '"data:image/svg+xml;' + encoding + ',' + svg + '"';
