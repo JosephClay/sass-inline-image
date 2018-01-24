@@ -4,14 +4,21 @@ var fs    = require('fs');
 var path  = require('path');
 var types = require('node-sass').types;
 
-var svg = function(buffer) {
+var svg = function(buffer, svgToBase64) {
+    var encoding = svgToBase64 ? 'base64' : 'utf8';
     var svg = buffer.toString()
         .replace(/\n/g, '')
         .replace(/\r/g, '')
-        .replace(/\#/g, '%23')
         .replace(/\"/g, "'");
 
-    return '"data:image/svg+xml;utf8,' + svg + '"';
+    if(svgToBase64) {
+      buffer = new Buffer(svg);
+      svg = buffer.toString('base64');
+    } else {
+      svg = encodeURIComponent(svg);
+    }
+
+    return '"data:image/svg+xml;' + encoding + ',' + svg + '"';
 };
 
 var img = function(buffer, ext) {
@@ -22,6 +29,8 @@ module.exports = function(options) {
     options = options || {};
 
     var base = options.base || process.cwd();
+    var svgToBase64 = options.svgToBase64 === true;
+
     return {
         'inline-image($file)': function(file) {
             // we want to file relative to the base
@@ -35,7 +44,7 @@ module.exports = function(options) {
             var data = fs.readFileSync(filePath);
 
             var buffer = new Buffer(data);
-            var str = ext === 'svg' ? svg(buffer, ext) : img(buffer, ext);
+            var str = ext === 'svg' ? svg(buffer, svgToBase64) : img(buffer, ext);
             return types.String(str);
         }
     };
